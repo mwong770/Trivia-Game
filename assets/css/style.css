@@ -1,0 +1,17 @@
+body {
+	text-align: center;
+	margin: 0 auto;
+}
+
+#timer {
+	visibility: hidden;
+}
+
+#summaryDiv {
+	visibility: hidden;
+}
+
+img {
+	width: 300px;
+	height: auto;
+}

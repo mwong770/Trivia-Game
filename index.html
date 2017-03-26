@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  	<title>Game</title>
+  	
+  	<!--link to Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<!--link to Google fonts-->
+	<link href="https://fonts.googleapis.com/css?family=Cabin+Sketch" rel="stylesheet">
+
+</head>
+<body>
+<div id="gameDiv">
+<h1> Trivia Game </h1>
+<button id="startButton"> Start </button>
+
+<div id="timer"></div>
+
+<div id="questionDiv">
+	<div id="question"></div>
+	<div id="choice1" class="choices"></div>
+	<div id="choice2" class="choices"></div>
+	<div id="choice3" class="choices"></div>
+	<div id="choice4" class="choices"></div>
+</div>
+
+<div id="resultDiv">
+	<div id="message"></div>
+	<div id="result"></div>
+	<div id=correctAnswer></div>
+	<img id=image></img>
+</div>
+
+<div id="summaryDiv">
+	<h4> Game Over </h4>
+	<div id="numCorrect"></div>
+	<div id="numWrong"></div>
+	<div id="numUnanswered"></div>
+	<div id="scorePercent"></div>
+	<div id="totalTime"></div>
+	<h4 id="replay"> Would you like to try again? </h4>
+	<button id="replayButton"> Replay </button>
+</div>
+
+
+</div> <!--end game div-->
+
+	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+	<script type="text/javascript" src="assets/javascript/app.js"></script>
+	
+</body>
+</html>
+
