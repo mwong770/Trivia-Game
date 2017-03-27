@@ -1,17 +1,122 @@
+* {
+	box-sizing: border-box; 
+}
+
 body {
 	text-align: center;
 	margin: 0 auto;
+	background-color: yellow;
+	font-size: 20px;
+}
+
+#triviaLogo {
+	margin-bottom: 20px;
+}
+
+h2 {
+	margin-bottom: 20px;
 }
 
 #timer {
 	visibility: hidden;
+	font-size: 30px;
+	font-weight: bold;
+/*	background: url("../images/timer.png") no-repeat;
+	width: 200px;
+	height: auto;*/
 }
 
-#summaryDiv {
-	visibility: hidden;
+#questionDiv, #resultDiv, #summaryDiv {
+	display: none;
+	width: 50%;
+	height: auto;
+	background-color: #04cc02;
+	margin: 0 auto 20px auto;
+	padding: 35px 0;
+/*    -ms-transform: rotate(-3deg); 
+    -webkit-transform: rotate(-3deg); 
+    transform: rotate(-3deg);*/
+}
+
+#question {
+	width: 80%;
+	height: 75px;
+	margin: 0 auto;
+
+}
+
+#choice1, #choice2, #choice3, #choice4 {
+	width: 80%;
+	height: 75px;
+	border: solid 2px blue;
+	background-color: ivory;
+	margin: 0 auto 3px auto;
+	padding: 10px;
 }
 
 img {
 	width: 300px;
 	height: auto;
 }
+
+#imageResult {
+	width: 300px;
+	height: auto;
+	margin-top: 20px;
+}
+
+#correctAnswer {
+	font-weight: bold;
+}
+
+#startButton {
+	width: 30%;
+	padding: 10px;
+	margin-top: 20px;
+	background-color: #04cc02;
+	border-radius: 20px;
+}
+
+#replayButton {
+	width: 50%;
+	padding: 10px;
+	margin-top: 20px;
+	background-color: #04cc02;
+	border-radius: 20px;
+}
+
+.homepageImage {
+	position: absolute;
+	bottom: 30px;
+	width: 20%;
+	height: auto;
+}
+
+/*@-webkit-keyframes masked-animation {
+	0% {background-position: right;}
+	100% {background-position: left;}
+}*/
+
+
+#imageCar {
+	left: 10%;
+/*	-webkit-animation-name: masked-animation;
+	-webkit-animation-duration: 20s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;*/
+}
+
+#imageBird {
+	left: 40%;
+}
+
+#imagePlant {
+	right: 10%;
+}
+
+
+
+
+
+
+

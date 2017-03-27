@@ -1,5 +1,27 @@
+//JS logic
+//jquery html
+//pulsate
 
+/*
+<style> 
+div {
+    width: 200px;
+    height: 100px;
+    background-color: yellow;
+    Rotate div 
+    -ms-transform: rotate(7deg); 
+    -webkit-transform: rotate(7deg); 
+    transform: rotate(7deg);
+}
+</style>
 
+//challenge round - try to answer in head before see options
+//maybe add hints, correct message, wrong message for each?
+//order of choices randomly selected
+//maybe instead of stickers, add funny gifs depending on score or just if answer right or wrong
+*/
+
+//questions and choices
 var abioticFactors = 
 		[
 			{
@@ -9,6 +31,7 @@ var abioticFactors =
 				choice3: 'gas heaters',
 				choice4: 'ocean water when it hits high temperatures',
 				answer: 'the sun',
+				// hint: 'sunburn.png',
 				image: "assets/images/sun.png"
 			},
 
@@ -19,6 +42,7 @@ var abioticFactors =
 				choice3: 'Light makes plant stems brown',
 				choice4: 'Light allows plants to perform photosynthesis',
 				answer: 'Light allows plants to perform photosynthesis',
+				// hint: Camera light/selfie -'Sin of the sister plant',
 				image: 'assets/images/photosynthesis.gif'
 			},
 
@@ -29,6 +53,9 @@ var abioticFactors =
 				choice3: 'Respiration turns oxygen and sugar to carbon dioxide and ethanol.',
 				choice4: 'Respiration turns oxygen and sugar to carbon dioxide and water.',
 				answer: 'Respiration turns oxygen and sugar to carbon dioxide and water.',
+				// hint: 'eating sugary bon bons while taking in too much oxygen will lead to
+				//crying bons in water - toilet
+				//start breathing heavy that old sugar daddy will start crying death and sign his will',
 				image: 'assets/images/aerobic.png'
 			},
 
@@ -39,6 +66,8 @@ var abioticFactors =
 				choice3: '78% nitrogen gas and 21% carbon dioxide',
 				choice4: '78% nitrogen gas and 21% oxygen',
 				answer: '78% nitrogen gas and 21% oxygen',
+				// hint: 'Why did the boy pass gas everyseconds he disagreed with his mom? 
+				//Because the acronym for the main components of air spell N.O.',
 				image: 'assets/images/air.png'
 			},
 
@@ -49,6 +78,7 @@ var abioticFactors =
 				choice3: 'A continuous supply of water is not provided. We lose ocean water every year.',
 				choice4: 'the oxygen-carbon dioxide cycle',
 				answer: 'the water cycle',
+				// hint: '',
 				image: 'assets/images/waterCycle.gif'
 			}
 
@@ -58,41 +88,46 @@ var intervalId = 0;
 var seconds = 10;
 var numberWrong = 0;
 var numberRight = 0;
+var numberUnanswered = 0;
 var questionNumber = 0;
 
-$("#startButton").on("click", game);
-$("#image").hide();
+$("#startButton").on("click", game);//this should be js
+$("#imageResult").hide();
+$("#replayButton").hide();
 
 function countDown() {
         seconds--;
         $("#timer").html(seconds);
 
-        if (seconds < 4) {
+        if (seconds < 4) {//If seconds runs down to 5, the secondsr turns red
             $("#timer").css("color", "rgb(255,0,0)");
         } else {
             $("#timer").css("color", "rgb(0,0,0");
         }
 
-        if (seconds <= 0) {
+        if (seconds <= 0) {//If seconds runs out, the secondsOut function runs
             endOfTime();
         }
 }
 
 function wrongChoice() {
 		clearInterval(intervalId);
-        numberWrong++;
-        $("#questionDiv").hide();
+        $("#questionDiv").css("display", "none");
         $("#timer").css("visibility", "hidden");
         $("#resultDiv").show();
         $("#result").html("The correct answer is..."); 
         $("#correctAnswer").html(abioticFactors[questionNumber].answer);
-        $("#image").attr("src", abioticFactors[questionNumber].image);
-        $("#image").show();
+        $("#imageResult").attr("src", abioticFactors[questionNumber].image);
+        $("#imageResult").show();
+
+        // $("#questionDiv").css("background-color", "rgba(255,0,0,0.75)").effect("pulsate", {times:3}, "slow");
+        //setTimeout(function() {$("#gameDiv").css("background-color", "rgba(255,255,255,0.75)");}, 3000)};
         setTimeout(nextQuestion, 3000);
 }
 
 function endOfTime() {
 	wrongChoice();
+	numberUnanswered++;
 	$("#message").html("Oops. You ran out of time.");
 }
 
@@ -103,54 +138,62 @@ function nextQuestion() {
         } 	else {
         		game();
         		$("#resultDiv").hide();
-        		$("#questionDiv").show();
+        		$("#questionDiv").css("display", "block");;
     		}
 }
 
 function game() {
 		$("#startButton").hide();
+		$(".homepageImage").hide();
+		$("#instructions").hide();
+		//activate time and if timer runs out wrongChoice() with new message
         seconds = 10;
         $("#timer").html(seconds);
         intervalId = setInterval(countDown, 1000);
         $("#timer").css("visibility", "visible");
+        //displays current question and choices
         $("#question").html(abioticFactors[questionNumber].question);
         $("#choice1").html(abioticFactors[questionNumber].choice1);
         $("#choice2").html(abioticFactors[questionNumber].choice2);
         $("#choice3").html(abioticFactors[questionNumber].choice3);
         $("#choice4").html(abioticFactors[questionNumber].choice4);
-        $("#questionDiv").show();            
+        $("#questionDiv").css("display", "block");           
 }
 
 $(".choices").on('click', function() {
-            if( $(this).text() === abioticFactors[questionNumber].answer) {
+            if( $(this).text() === abioticFactors[questionNumber].answer) {//...this will happen if right
                 clearInterval(intervalId);
                 numberRight++;
-                $("#questionDiv").hide();
+                // $("#questionDiv").css("background-color", "rgba(200,200,255,0.75)").effect("pulsate", {times:3}, "slow");
+                $("#questionDiv").css("display", "none");//make js
                 $("#timer").css("visibility", "hidden");
                 $("#resultDiv").show();
                 $("#message").html("You got it right.");
                 $("#result").html("Way to go!");
                 $("#correctAnswer").html('');
-                $("#image").attr("src", abioticFactors[questionNumber].image);
-                $("#image").show();
+                $("#imageResult").attr("src", abioticFactors[questionNumber].image);
+                $("#imageResult").show();
                 setTimeout(nextQuestion, 3000);
-            } 		else {
+            } 		else {//...this will happen if wrong
                 		wrongChoice();
+                		numberWrong++;
                 		$("#message").html("Oh no. That is not correct.")
             	}
 });
 
 function gameOver() {
 		$("#resultDiv").hide();
-		$("#numCorrect").html("Number Right " + numberRight);
-        $("#numWrong").html("Number Wrong " + numberWrong);
-        $("#numUnanswered").html("Number Unanswered " + abioticFactors.length - numberRight - numberWrong);
-   		$("#scorePercent").html("Percent Right " + (numberRight/abioticFactors.length)*100 + "%");
-   		$("#summaryDiv").css("visibility", "visible");
+		$("#numCorrect").html(numberRight);
+        $("#numWrong").html(numberWrong);
+        $("#numUnanswered").html(numberUnanswered);
+   		$("#scorePercent").html((numberRight/abioticFactors.length)*100 + "%");
+   		$("#summaryDiv").css("display", "block");
+   		$("#replayButton").show();
 }
 
 $("#replayButton").on("click", function() {
-		$("#summaryDiv").css("visibility", "hidden");
+		$("#summaryDiv").css("display", "none");
+		$("#replayButton").hide();
 		numberWrong = 0;
 		numberRight = 0;
 		questionNumber = 0;

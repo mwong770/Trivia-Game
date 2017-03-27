@@ -15,12 +15,23 @@
 
 </head>
 <body>
+
+<header>
+	<h1> Ecology </h1>
+	<img id="triviaLogo" src="assets/images/trivia.png"></img>
+</header>
+
+
 <div id="gameDiv">
-<h1> Trivia Game </h1>
-<button id="startButton"> Start </button>
+<p id="instructions">  Do you think you know about ecology? <br/>
+	 Play as you test your knowledge and learn about human ecology.</p>
+<button id="startButton"> Play to Learn </button>
+<img id="imageCar" class="homepageImage" src="assets/images/car.png"></img>
+<img id="imageBird" class="homepageImage" src="assets/images/bird.gif"></img>
+<img id="imagePlant" class="homepageImage" src="assets/images/plant.gif"></img>
 
 <div id="timer"></div>
-
+<!-- <div id="questionDiv"></div> -->
 <div id="questionDiv">
 	<div id="question"></div>
 	<div id="choice1" class="choices"></div>
@@ -33,20 +44,24 @@
 	<div id="message"></div>
 	<div id="result"></div>
 	<div id=correctAnswer></div>
-	<img id=image></img>
+	<img id=imageResult></img>
 </div>
 
 <div id="summaryDiv">
-	<h4> Game Over </h4>
+	<h2> Game Over </h2>
+	<div id="numCorrectLabel"> Number Correct </div>
 	<div id="numCorrect"></div>
+	<div id="numWrongLabel">Number Wrong</div>
 	<div id="numWrong"></div>
+	<div id="numUnansweredLabel"> Number Unanswered </div>
 	<div id="numUnanswered"></div>
+	<div id="scorePercentLabel"> Percent Correct </div>
 	<div id="scorePercent"></div>
 	<div id="totalTime"></div>
-	<h4 id="replay"> Would you like to try again? </h4>
-	<button id="replayButton"> Replay </button>
+	<!-- <h4 id="replay"> Would you like to try again? </h4> -->
 </div>
 
+<button id="replayButton"> Play Again </button>
 
 </div> <!--end game div-->
 
