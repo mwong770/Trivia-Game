@@ -1,5 +1,69 @@
 
 //questions and choices
+var competition = 
+		[
+			{
+				question: "What created the spires and pinnacles in the desert?",
+				choice1: 'water',
+				choice2: 'dried sand',
+				choice3: 'minerals',
+				choice4: 'people',
+				answer: 'water',
+				image: "assets/images/spire.jpg"
+			},
+
+			{
+				question: "what kinds of competition are the ibex having?",
+				choice1: 'shelter',
+				choice2: 'water',
+				choice3: 'mate',
+				choice4: 'food',
+				answer: 'mate',
+				image: 'assets/images/mate.jpg'
+			},
+
+			{
+				question: "Why is taking the high ground a more effective technique?",
+				choice1: 'It surprises their opponent, giving them more time to hit.',
+				choice2: 'It scares the animal they are fighting.',
+				choice3: 'It makes it easier to get away.',
+				choice4: 'It adds more force to their hits.',
+				answer: 'It adds more force to their hits.',
+				image: 'assets/images/highGround.jpg'
+			},
+
+			{
+				question: "Why is the desert so full of lizards?",
+				choice1: 'The desert supports them.',
+				choice2: 'People put them there.',
+				choice3: "It doesn't. Lizards are going extinct.",
+				choice4: 'Most are male lizards who travel to deserts to find a mate.',
+				answer: 'The desert supports them.',
+				image: 'assets/images/lizard.jpg'
+			},
+
+			{
+				question: "How does an ibex fight dirty?",
+				choice1: 'by attacking from behind',
+				choice2: 'by going 2 against 1',
+				choice3: "by using scare tactics",
+				choice4: 'by using the high ground',
+				answer: 'by going 2 against 1',
+				image: 'assets/images/fighting.jpg'
+			},
+
+			{
+				question: "What resource are the lizards competing for?",
+				choice1: 'cool locations',
+				choice2: 'a mate',
+				choice3: "water",
+				choice4: 'flies in the river',
+				answer: 'flies in the river',
+				image: 'assets/images/fly.jpg'
+			}
+
+		];
+
 var abioticFactors = 
 		[
 			{
@@ -60,13 +124,36 @@ var numberWrong = 0;
 var numberRight = 0;
 var numberUnanswered = 0;
 var questionNumber = 0;
+var choice;
 
-//when click start, begins game function 
-$("#startButton").on("click", game);
+var abioticFactorsCategory = false;
+var competitionCategory = false;
 
 //hides elements will use later
 $("#imageResult").hide();
 $("#replayButton").hide();
+$("#categories").hide();
+
+//when click start, show categories buttons and remove some homepage elements
+$("#startButton").on("click", function() {
+	$("#categories").show();
+	$("#homepageImages").remove();
+	$("#gameDiv").remove();
+});
+
+//when click abioticFactors button, set abioticFactors to true
+//and call game function
+$("#abioticFactors").on("click", function() {
+	abioticFactorsCategory = true;
+	game();
+});
+
+//when click category button, set category to true
+//and call game function
+$("#testCategory").on("click", function() {
+	competitionCategory = true;
+	game();
+});
 
 //decreases seconds 
 function countDown() {
@@ -80,37 +167,47 @@ function countDown() {
         }
 
         if (seconds <= 0) {
-            endOfTime();
+            if (abioticFactorsCategory == true) {
+   				endOfTime(abioticFactors);
+   			} 	else if (competitionCategory == true) {
+   					endOfTime(competition);
+   		  		}
         }
 }
 
-//stops timer, gives result, and calls nextQuestion function
-//used if pick wrong choice or time runs out
-function wrongChoice() {
-		clearInterval(intervalId);
-        $("#questionDiv").css("display", "none");
-        $("#timer").css("visibility", "hidden");
-        $("#resultDiv").show();
-        $("#result").html("The correct answer is..."); 
-        $("#correctAnswer").html(abioticFactors[questionNumber].answer);
-        $("#imageResult").attr("src", abioticFactors[questionNumber].image);
-        $("#imageResult").show();
-		setTimeout(nextQuestion, 3000);
+//displays current question
+function questions(category) {
+	$("#question").html(category[questionNumber].question);
+    $("#choice1").html(category[questionNumber].choice1);
+    $("#choice2").html(category[questionNumber].choice2);
+    $("#choice3").html(category[questionNumber].choice3);
+    $("#choice4").html(category[questionNumber].choice4);
 }
 
-//used if run out of time
-function endOfTime() {
-	wrongChoice();
-	numberUnanswered++;
-	$("#message").html("Oops. You ran out of time.");
+//sets and activates timer
+//calls questions function
+function game() {
+		$("#homepageImages").remove();
+		$("#gameDiv").remove();
+		$("#categories").hide();
+        seconds = 10;
+        $("#timer").html(seconds);
+        intervalId = setInterval(countDown, 1000);
+        $("#timer").css("visibility", "visible");
+        if (abioticFactorsCategory == true) {
+        	questions(abioticFactors);
+        } 	else if (competitionCategory == true) {
+       			questions(competition);
+       		}
+        $("#questionDiv").css("display", "block");          
 }
 
-//if there are still questions in the array, calls game function
-//if there are no more questions in the array, calls gameOver function
-function nextQuestion() {
+//if no more questions in array, calls endOfGame function
+//if more questions in array, calls game function
+function nextQuestion(category) {
 	questionNumber++;
-	if (questionNumber == abioticFactors.length) {
-        gameOver();
+		if (questionNumber == category.length) {
+        	gameOver();
         } 	else {
         		game();
         		$("#resultDiv").hide();
@@ -118,45 +215,77 @@ function nextQuestion() {
     		}
 }
 
-//sets and activates timer
-//displays current question
-function game() {
-		$("#homepageImages").remove();
-		$("#gameDiv").remove();
-        seconds = 10;
-        $("#timer").html(seconds);
-        intervalId = setInterval(countDown, 1000);
-        $("#timer").css("visibility", "visible");
-        $("#question").html(abioticFactors[questionNumber].question);
-        $("#choice1").html(abioticFactors[questionNumber].choice1);
-        $("#choice2").html(abioticFactors[questionNumber].choice2);
-        $("#choice3").html(abioticFactors[questionNumber].choice3);
-        $("#choice4").html(abioticFactors[questionNumber].choice4);
-        $("#questionDiv").css("display", "block");           
+//calls checkIfRight function when click choice
+$(".choices").on('click', function() {
+	choice = $(this);
+	if (abioticFactorsCategory == true) {
+		checkIfRight(abioticFactors);
+	} else if (competitionCategory == true) {
+		checkIfRight(competition);
+	}
+});
+
+//if click correct choice, calls correctChoice function
+//if choice is not correct, calls wrongChoice function
+function checkIfRight(category) {
+	if(choice.text() === category[questionNumber].answer) {
+ 		correctChoice(category);
+	} 	else {
+      		wrongChoice(category);             		
+ 		}
 }
 
 //hides question and choices and stops timer
-//if click correct choice, displays congratulatory resultDiv
-//if click incorrect choice, calls wrongChoice function
-$(".choices").on('click', function() {
-            if( $(this).text() === abioticFactors[questionNumber].answer) {
-                clearInterval(intervalId);
-                numberRight++;
-                $("#questionDiv").css("display", "none");
-                $("#timer").css("visibility", "hidden");
-                $("#resultDiv").show();
-                $("#message").html("You got it right.");
-                $("#result").html("Way to go!");
-                $("#correctAnswer").html('');
-                $("#imageResult").attr("src", abioticFactors[questionNumber].image);
-                $("#imageResult").show();
-                setTimeout(nextQuestion, 3000);
-            } 		else {
-                		wrongChoice();
-                		numberWrong++;
-                		$("#message").html("Oh no. That is not correct.")
-            	}
-});
+//displays congratulatory resultDiv
+function correctChoice(category) {
+	clearInterval(intervalId);
+    numberRight++;
+    $("#questionDiv").css("display", "none");
+    $("#timer").css("visibility", "hidden");
+    $("#resultDiv").show();
+    $("#message").html("You got it right.");
+    $("#result").html("Way to go!");
+    $("#correctAnswer").html('');
+    $("#imageResult").attr("src", category[questionNumber].image);
+    $("#imageResult").show();
+    if (abioticFactorsCategory == true) {
+    	setTimeout(nextQuestion, 3000, abioticFactors);
+    } 	else if (competitionCategory == true) {
+    		setTimeout(nextQuestion, 3000, competition);
+    	}
+}
+
+//displays message indicating incorrect and calls incorrect function
+function wrongChoice(category) {
+		numberWrong++;
+		$("#message").html("Oh no. That is not correct.")
+		incorrect(category);
+}
+
+//hides question and choices, stops timer and calls nextQuestion function
+//displays resultDiv
+function incorrect(category) {
+	clearInterval(intervalId);
+    $("#questionDiv").css("display", "none");
+    $("#timer").css("visibility", "hidden");
+    $("#resultDiv").show();
+    $("#result").html("The correct answer is..."); 
+    $("#correctAnswer").html(category[questionNumber].answer);
+    $("#imageResult").attr("src", category[questionNumber].image);
+    $("#imageResult").show();
+	if (abioticFactorsCategory == true) {
+    	setTimeout(nextQuestion, 3000, abioticFactors);
+    } 	else if (competitionCategory == true) {
+    		setTimeout(nextQuestion, 3000, competition);
+    	}
+}
+
+//shows message indicating ran out of time and calls incorrect function
+function endOfTime(category) {
+	numberUnanswered++;
+	$("#message").html("Oops. You ran out of time.");
+	incorrect(category);
+}
 
 //hides resultDiv and displays a summary of the user's performance
 function gameOver() {
@@ -164,19 +293,25 @@ function gameOver() {
 		$("#numCorrect").html(numberRight);
         $("#numWrong").html(numberWrong);
         $("#numUnanswered").html(numberUnanswered);
-   		$("#scorePercent").html((numberRight/abioticFactors.length)*100 + "%");
+        if (abioticFactorsCategory == true) {
+   			$("#scorePercent").html((numberRight/abioticFactors.length)*100 + "%");
+   		} 	else if (competitionCategory == true) {
+   				$("#scorePercent").html((numberRight/competition.length)*100 + "%");
+   		  	}
    		$("#summaryDiv").css("display", "block");
    		$("#replayButton").show();
 }
 
-//when click replayButton, hides summary info, resets variables, and calls game function
+//when click replayButton, hides summary info, resets variables, and displays categories
 $("#replayButton").on("click", function() {
 		$("#summaryDiv").css("display", "none");
 		$("#replayButton").hide();
+		abioticFactorsCategory = false;
+		competitionCategory = false;
 		numberWrong = 0;
 		numberRight = 0;
 		questionNumber = 0;
-		game();
+		$("#categories").show();
 });
 
 
