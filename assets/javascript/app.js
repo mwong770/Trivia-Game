@@ -1,25 +1,3 @@
-//JS logic
-//jquery html
-//pulsate
-
-/*
-<style> 
-div {
-    width: 200px;
-    height: 100px;
-    background-color: yellow;
-    Rotate div 
-    -ms-transform: rotate(7deg); 
-    -webkit-transform: rotate(7deg); 
-    transform: rotate(7deg);
-}
-</style>
-
-//challenge round - try to answer in head before see options
-//maybe add hints, correct message, wrong message for each?
-//order of choices randomly selected
-//maybe instead of stickers, add funny gifs depending on score or just if answer right or wrong
-*/
 
 //questions and choices
 var abioticFactors = 
@@ -91,7 +69,7 @@ var numberRight = 0;
 var numberUnanswered = 0;
 var questionNumber = 0;
 
-$("#startButton").on("click", game);//this should be js
+$("#startButton").on("click", game);
 $("#imageResult").hide();
 $("#replayButton").hide();
 
@@ -99,13 +77,13 @@ function countDown() {
         seconds--;
         $("#timer").html(seconds);
 
-        if (seconds < 4) {//If seconds runs down to 5, the secondsr turns red
+        if (seconds < 4) {
             $("#timer").css("color", "rgb(255,0,0)");
         } else {
             $("#timer").css("color", "rgb(0,0,0");
         }
 
-        if (seconds <= 0) {//If seconds runs out, the secondsOut function runs
+        if (seconds <= 0) {
             endOfTime();
         }
 }
@@ -119,10 +97,7 @@ function wrongChoice() {
         $("#correctAnswer").html(abioticFactors[questionNumber].answer);
         $("#imageResult").attr("src", abioticFactors[questionNumber].image);
         $("#imageResult").show();
-
-        // $("#questionDiv").css("background-color", "rgba(255,0,0,0.75)").effect("pulsate", {times:3}, "slow");
-        //setTimeout(function() {$("#gameDiv").css("background-color", "rgba(255,255,255,0.75)");}, 3000)};
-        setTimeout(nextQuestion, 3000);
+		setTimeout(nextQuestion, 3000);
 }
 
 function endOfTime() {
@@ -143,15 +118,12 @@ function nextQuestion() {
 }
 
 function game() {
-		$("#startButton").hide();
-		$(".homepageImage").hide();
-		$("#instructions").hide();
-		//activate time and if timer runs out wrongChoice() with new message
+		$("#homepageImages").remove();
+		$("#gameDiv").remove();
         seconds = 10;
         $("#timer").html(seconds);
         intervalId = setInterval(countDown, 1000);
         $("#timer").css("visibility", "visible");
-        //displays current question and choices
         $("#question").html(abioticFactors[questionNumber].question);
         $("#choice1").html(abioticFactors[questionNumber].choice1);
         $("#choice2").html(abioticFactors[questionNumber].choice2);
@@ -161,11 +133,10 @@ function game() {
 }
 
 $(".choices").on('click', function() {
-            if( $(this).text() === abioticFactors[questionNumber].answer) {//...this will happen if right
+            if( $(this).text() === abioticFactors[questionNumber].answer) {
                 clearInterval(intervalId);
                 numberRight++;
-                // $("#questionDiv").css("background-color", "rgba(200,200,255,0.75)").effect("pulsate", {times:3}, "slow");
-                $("#questionDiv").css("display", "none");//make js
+                $("#questionDiv").css("display", "none");
                 $("#timer").css("visibility", "hidden");
                 $("#resultDiv").show();
                 $("#message").html("You got it right.");
@@ -174,7 +145,7 @@ $(".choices").on('click', function() {
                 $("#imageResult").attr("src", abioticFactors[questionNumber].image);
                 $("#imageResult").show();
                 setTimeout(nextQuestion, 3000);
-            } 		else {//...this will happen if wrong
+            } 		else {
                 		wrongChoice();
                 		numberWrong++;
                 		$("#message").html("Oh no. That is not correct.")

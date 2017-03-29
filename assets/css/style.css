@@ -2,9 +2,24 @@
 	box-sizing: border-box; 
 }
 
+.container {
+	background: url("../images/grass.jpg") no-repeat;
+	overflow: auto;
+	background-size: 100% 100px;
+	background-position: bottom;
+	width: 100%;
+}
+
+/*step 1 of 3 to make sticky footer*/
+html {
+	position: relative;
+	min-height: 100%;
+}
+
+/*margin 10 (height of footer) is step 2 of 3 to make sticky footer*/
 body {
 	text-align: center;
-	margin: 0 auto;
+	margin: 0 auto 60px auto;
 	background-color: yellow;
 	font-size: 20px;
 }
@@ -21,9 +36,6 @@ h2 {
 	visibility: hidden;
 	font-size: 30px;
 	font-weight: bold;
-/*	background: url("../images/timer.png") no-repeat;
-	width: 200px;
-	height: auto;*/
 }
 
 #questionDiv, #resultDiv, #summaryDiv {
@@ -33,9 +45,6 @@ h2 {
 	background-color: #04cc02;
 	margin: 0 auto 20px auto;
 	padding: 35px 0;
-/*    -ms-transform: rotate(-3deg); 
-    -webkit-transform: rotate(-3deg); 
-    transform: rotate(-3deg);*/
 }
 
 #question {
@@ -75,6 +84,7 @@ img {
 	margin-top: 20px;
 	background-color: #04cc02;
 	border-radius: 20px;
+	margin-bottom: 0px;
 }
 
 #replayButton {
@@ -85,33 +95,75 @@ img {
 	border-radius: 20px;
 }
 
-.homepageImage {
-	position: absolute;
-	bottom: 30px;
-	width: 20%;
+#carDiv {
+	height: 230px;
+	margin-top: 100px;
+}
+
+#car {
+	width: 85%;
 	height: auto;
+	margin-top: 90px;
 }
 
-/*@-webkit-keyframes masked-animation {
-	0% {background-position: right;}
-	100% {background-position: left;}
-}*/
-
-
-#imageCar {
-	left: 10%;
-/*	-webkit-animation-name: masked-animation;
-	-webkit-animation-duration: 20s;
-	-webkit-animation-iteration-count: infinite;
-	-webkit-animation-timing-function: linear;*/
+#sodaDiv {
+	height: 230px;
+	margin-top: 100px;
 }
 
-#imageBird {
-	left: 40%;
+#soda {
+	width: 80%;
+	height: auto;
+	margin-top: 240px;
+	margin-left: 60px;
 }
 
-#imagePlant {
-	right: 10%;
+#trashcanDiv {
+	height: 300px;
+	margin-top: 130px;
+}
+
+#trashcan {
+	width: 50%;
+	height: auto;
+	margin-top: 80px;
+	margin-right: 110px;
+}
+
+#dogDiv {
+	height: 300px;
+	margin-top: 100px;
+}
+
+#dog {
+	width: 65%;
+	height: auto;
+	margin-top: 140px;
+}
+
+#plantDiv {
+	height: 300px;
+	margin-top: 100px;
+}
+
+#plant {
+	width: 100%;
+	height: auto;
+	margin-top: 40px;
+	margin-right: -75px;
+}
+
+/*position absolute/bottom 0/width 100% is step 3 of 3 to make sticky footer*/
+footer {
+	position: absolute;
+	height: 60px;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+	background-color: #04cc02;
+	left: 0;
+	right: 0;
+	padding-top: 20px;
 }
 
 

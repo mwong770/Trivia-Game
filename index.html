@@ -16,58 +16,81 @@
 </head>
 <body>
 
-<header>
-	<h1> Ecology </h1>
-	<img id="triviaLogo" src="assets/images/trivia.png"></img>
-</header>
+	<header>
+		<h1> Ecology </h1>
+		<img id="triviaLogo" src="assets/images/trivia.png"></img>
+	</header>
 
 
-<div id="gameDiv">
-<p id="instructions">  Do you think you know about ecology? <br/>
-	 Play as you test your knowledge and learn about human ecology.</p>
-<button id="startButton"> Play to Learn </button>
-<img id="imageCar" class="homepageImage" src="assets/images/car.png"></img>
-<img id="imageBird" class="homepageImage" src="assets/images/bird.gif"></img>
-<img id="imagePlant" class="homepageImage" src="assets/images/plant.gif"></img>
+	<div id="gameDiv">
+		<p id="instructions">  How well do you know 8th grade ecology? <br/>
+	 		Play as you test your knowledge and discover new facts about ecology.</p>
+		<button id="startButton"> Play to Learn </button>
+	</div>
 
-<div id="timer"></div>
-<!-- <div id="questionDiv"></div> -->
-<div id="questionDiv">
-	<div id="question"></div>
-	<div id="choice1" class="choices"></div>
-	<div id="choice2" class="choices"></div>
-	<div id="choice3" class="choices"></div>
-	<div id="choice4" class="choices"></div>
-</div>
+	<div id="homepageImages" class="container">
+		<div class="row">
+			<div id="carDiv" class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+				<img id="car" src="assets/images/car.png"></img>
+			</div>
+			<div id="sodaDiv" class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+				<img id="soda" src="assets/images/soda.png"></img>
+			</div>
+			<div id="trashcanDiv" class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+				<img id="trashcan" src="assets/images/trashcan.png"></img>
+			</div>
+			<div id="plantDiv" class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+				<img id="plant" src="assets/images/plant.png"></img>
+			</div>
+			<div id="dogDiv" class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+				<img id="dog" src="assets/images/dog.png"></img>
+			</div>
+		</div>
+	</div>
 
-<div id="resultDiv">
-	<div id="message"></div>
-	<div id="result"></div>
-	<div id=correctAnswer></div>
-	<img id=imageResult></img>
-</div>
 
-<div id="summaryDiv">
-	<h2> Game Over </h2>
-	<div id="numCorrectLabel"> Number Correct </div>
-	<div id="numCorrect"></div>
-	<div id="numWrongLabel">Number Wrong</div>
-	<div id="numWrong"></div>
-	<div id="numUnansweredLabel"> Number Unanswered </div>
-	<div id="numUnanswered"></div>
-	<div id="scorePercentLabel"> Percent Correct </div>
-	<div id="scorePercent"></div>
-	<div id="totalTime"></div>
-	<!-- <h4 id="replay"> Would you like to try again? </h4> -->
-</div>
+	<div id="timer"></div>
+	<!-- <div id="questionDiv"></div> -->
+	<div id="questionDiv">
+		<div id="question"></div>
+		<div id="choice1" class="choices"></div>
+		<div id="choice2" class="choices"></div>
+		<div id="choice3" class="choices"></div>
+		<div id="choice4" class="choices"></div>
+	</div>
 
-<button id="replayButton"> Play Again </button>
+	<div id="resultDiv">
+		<div id="message"></div>
+		<div id="result"></div>
+		<div id=correctAnswer></div>
+		<img id=imageResult></img>
+	</div>
 
-</div> <!--end game div-->
+	<div id="summaryDiv">
+		<h2> Game Over </h2>
+		<div id="numCorrectLabel"> Number Correct </div>
+		<div id="numCorrect"></div>
+		<div id="numWrongLabel">Number Wrong</div>
+		<div id="numWrong"></div>
+		<div id="numUnansweredLabel"> Number Unanswered </div>
+		<div id="numUnanswered"></div>
+		<div id="scorePercentLabel"> Percent Correct </div>
+		<div id="scorePercent"></div>
+		<div id="totalTime"></div>
+	</div>
+
+	<button id="replayButton"> Play Again </button>
+
+	</div> <!--end game div-->
+
+	<footer>
+		Copyright &copy; 2017 Maria Wong
+	</footer>
 
 	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 	<script type="text/javascript" src="assets/javascript/app.js"></script>
 	
 </body>
+
 </html>
 
