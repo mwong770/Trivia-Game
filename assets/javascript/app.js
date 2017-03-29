@@ -9,7 +9,6 @@ var abioticFactors =
 				choice3: 'gas heaters',
 				choice4: 'ocean water when it hits high temperatures',
 				answer: 'the sun',
-				// hint: 'sunburn.png',
 				image: "assets/images/sun.png"
 			},
 
@@ -20,7 +19,6 @@ var abioticFactors =
 				choice3: 'Light makes plant stems brown',
 				choice4: 'Light allows plants to perform photosynthesis',
 				answer: 'Light allows plants to perform photosynthesis',
-				// hint: Camera light/selfie -'Sin of the sister plant',
 				image: 'assets/images/photosynthesis.gif'
 			},
 
@@ -31,9 +29,6 @@ var abioticFactors =
 				choice3: 'Respiration turns oxygen and sugar to carbon dioxide and ethanol.',
 				choice4: 'Respiration turns oxygen and sugar to carbon dioxide and water.',
 				answer: 'Respiration turns oxygen and sugar to carbon dioxide and water.',
-				// hint: 'eating sugary bon bons while taking in too much oxygen will lead to
-				//crying bons in water - toilet
-				//start breathing heavy that old sugar daddy will start crying death and sign his will',
 				image: 'assets/images/aerobic.png'
 			},
 
@@ -44,8 +39,6 @@ var abioticFactors =
 				choice3: '78% nitrogen gas and 21% carbon dioxide',
 				choice4: '78% nitrogen gas and 21% oxygen',
 				answer: '78% nitrogen gas and 21% oxygen',
-				// hint: 'Why did the boy pass gas everyseconds he disagreed with his mom? 
-				//Because the acronym for the main components of air spell N.O.',
 				image: 'assets/images/air.png'
 			},
 
@@ -56,7 +49,6 @@ var abioticFactors =
 				choice3: 'A continuous supply of water is not provided. We lose ocean water every year.',
 				choice4: 'the oxygen-carbon dioxide cycle',
 				answer: 'the water cycle',
-				// hint: '',
 				image: 'assets/images/waterCycle.gif'
 			}
 
@@ -69,10 +61,14 @@ var numberRight = 0;
 var numberUnanswered = 0;
 var questionNumber = 0;
 
+//when click start, begins game function 
 $("#startButton").on("click", game);
+
+//hides elements will use later
 $("#imageResult").hide();
 $("#replayButton").hide();
 
+//decreases seconds 
 function countDown() {
         seconds--;
         $("#timer").html(seconds);
@@ -88,6 +84,8 @@ function countDown() {
         }
 }
 
+//stops timer, gives result, and calls nextQuestion function
+//used if pick wrong choice or time runs out
 function wrongChoice() {
 		clearInterval(intervalId);
         $("#questionDiv").css("display", "none");
@@ -100,12 +98,15 @@ function wrongChoice() {
 		setTimeout(nextQuestion, 3000);
 }
 
+//used if run out of time
 function endOfTime() {
 	wrongChoice();
 	numberUnanswered++;
 	$("#message").html("Oops. You ran out of time.");
 }
 
+//if there are still questions in the array, calls game function
+//if there are no more questions in the array, calls gameOver function
 function nextQuestion() {
 	questionNumber++;
 	if (questionNumber == abioticFactors.length) {
@@ -117,6 +118,8 @@ function nextQuestion() {
     		}
 }
 
+//sets and activates timer
+//displays current question
 function game() {
 		$("#homepageImages").remove();
 		$("#gameDiv").remove();
@@ -132,6 +135,9 @@ function game() {
         $("#questionDiv").css("display", "block");           
 }
 
+//hides question and choices and stops timer
+//if click correct choice, displays congratulatory resultDiv
+//if click incorrect choice, calls wrongChoice function
 $(".choices").on('click', function() {
             if( $(this).text() === abioticFactors[questionNumber].answer) {
                 clearInterval(intervalId);
@@ -152,6 +158,7 @@ $(".choices").on('click', function() {
             	}
 });
 
+//hides resultDiv and displays a summary of the user's performance
 function gameOver() {
 		$("#resultDiv").hide();
 		$("#numCorrect").html(numberRight);
@@ -162,6 +169,7 @@ function gameOver() {
    		$("#replayButton").show();
 }
 
+//when click replayButton, hides summary info, resets variables, and calls game function
 $("#replayButton").on("click", function() {
 		$("#summaryDiv").css("display", "none");
 		$("#replayButton").hide();

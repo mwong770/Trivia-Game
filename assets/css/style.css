@@ -2,16 +2,6 @@
 	box-sizing: border-box; 
 }
 
-.container {
-	position: absolute;
-	bottom: 0;
-	background: url("../images/grass.jpg") no-repeat;
-	overflow: auto;
-	background-size: 100% 200px;
-	background-position: bottom;
-	width: 100%;
-}
-
 /*step 1 of 3 to make sticky footer*/
 html {
 	position: relative;
@@ -34,6 +24,83 @@ h2 {
 	margin-bottom: 20px;
 }
 
+.container {
+	position: absolute;
+	bottom: 0;
+	background: url("../images/grass.jpg") no-repeat;
+	overflow: auto;
+	background-size: 100% 200px;
+	background-position: bottom;
+	width: 100%;
+}
+
+#startButton {
+	width: 30%;
+	padding: 10px;
+	margin-top: 20px;
+	background-color: #04cc02;
+	border-radius: 20px;
+	margin-bottom: 0px;
+}
+
+#carDiv {
+	height: 230px;
+	margin-top: 60px;
+}
+
+#car {
+	width: 85%;
+	height: auto;
+	margin-top: 30px;
+}
+
+#sodaDiv {
+	height: 230px;
+	margin-top: 100px;
+}
+
+#soda {
+	width: 80%;
+	height: auto;
+	margin-top: 200px;
+	margin-left: 60px;
+}
+
+#trashcanDiv {
+	height: 300px;
+	margin-top: 80px;
+}
+
+#trashcan {
+	width: 50%;
+	height: auto;
+	margin-top: 80px;
+	margin-right: 110px;
+}
+
+#dogDiv {
+	height: 300px;
+	margin-top: 100px;
+}
+
+#dog {
+	width: 65%;
+	height: auto;
+	margin-top: 100px;
+}
+
+#plantDiv {
+	height: 300px;
+	margin-top: -50px;
+}
+
+#plant {
+	width: 100%;
+	height: auto;
+	margin-top: 40px;
+	margin-right: -75px;
+}
+
 #timer {
 	visibility: hidden;
 	font-size: 30px;
@@ -53,7 +120,6 @@ h2 {
 	width: 80%;
 	height: 75px;
 	margin: 0 auto;
-
 }
 
 #choice1, #choice2, #choice3, #choice4 {
@@ -63,6 +129,10 @@ h2 {
 	background-color: ivory;
 	margin: 0 auto 3px auto;
 	padding: 10px;
+}
+
+#correctAnswer {
+	font-weight: bold;
 }
 
 img {
@@ -76,83 +146,12 @@ img {
 	margin-top: 20px;
 }
 
-#correctAnswer {
-	font-weight: bold;
-}
-
-#startButton {
-	width: 30%;
-	padding: 10px;
-	margin-top: 20px;
-	background-color: #04cc02;
-	border-radius: 20px;
-	margin-bottom: 0px;
-}
-
 #replayButton {
 	width: 50%;
 	padding: 10px;
 	margin-top: 20px;
 	background-color: #04cc02;
 	border-radius: 20px;
-}
-
-#carDiv {
-	height: 230px;
-	margin-top: 60px;
-}
-
-#car {
-	width: 85%;
-	height: auto;
-	margin-top: 90px;
-}
-
-#sodaDiv {
-	height: 230px;
-	margin-top: 100px;
-}
-
-#soda {
-	width: 80%;
-	height: auto;
-	margin-top: 240px;
-	margin-left: 60px;
-}
-
-#trashcanDiv {
-	height: 300px;
-	margin-top: 130px;
-}
-
-#trashcan {
-	width: 50%;
-	height: auto;
-	margin-top: 80px;
-	margin-right: 110px;
-}
-
-#dogDiv {
-	height: 300px;
-	margin-top: 100px;
-}
-
-#dog {
-	width: 65%;
-	height: auto;
-	margin-top: 140px;
-}
-
-#plantDiv {
-	height: 300px;
-	margin-top: 100px;
-}
-
-#plant {
-	width: 100%;
-	height: auto;
-	margin-top: 40px;
-	margin-right: -75px;
 }
 
 /*position absolute/bottom 0/width 100% is step 3 of 3 to make sticky footer*/
