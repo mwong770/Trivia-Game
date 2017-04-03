@@ -11,6 +11,7 @@ var abioticFactorsCategory = false;
 var competitionCategory = false;
 var symbiosisCategory = false;
 
+
 //hides elements will use later
 $("#imageResult").hide();
 $("#replayButton").hide();
