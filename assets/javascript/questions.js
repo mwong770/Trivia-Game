@@ -117,7 +117,7 @@ var competition =
 				choice1: "two species that compete for the exact same resources cannot stably coexist.",
 				choice2: "there must be more resources than animals for animals to survive",
 				choice3: "populations will stabilize when resources are sufficient to meet animals' needs",
-				choice4: "the introduction of a non-native species will adversely affect the native species",
+				choice4: "the introduction of non-native species will adversely affect the native species",
 				answer: "two species that compete for the exact same resources cannot stably coexist.",
 				image: "assets/images/exclusionPrinciple.jpg"
 			},
@@ -126,7 +126,7 @@ var competition =
 				question: "13/14 <br/> Which are examples of the competitive exclusion principle?",
 				choice1: "birds migrating because the cold hurts them",
 				choice2: "two species feeding off different sized twigs and limbs",
-				choice3: "birds migrating due to competition for food and vines climbing up trees for sunlight",
+				choice3: "birds migrating due to competition for food",
 				choice4: "both b and c",
 				answer: "both b and c",
 				image: "assets/images/2birds.png"
@@ -278,11 +278,11 @@ var abioticFactors =
 
 			{
 				question: "14/20 <br/> How are legumes important to the nitrogen cycle?",
-				choice1: "nitrogen fixing bacteria that live in legumes' roots supply the legume with usable nitrogen (NH3).",
-				choice2: "legumes convert useless nitrogen (NH2) to useful nitrogen (NH3).",
-				choice3: "nitrogen fixing bacteria that lie in the legumes' leaves supply the legume with usable nitrogen (NH3).",
-				choice4: "legumes give bacteria useless nitrogen (NH2) so the bacteria can convert NH2 to good nitrogen (NH3).",
-				answer: "nitrogen fixing bacteria that live in legumes' roots supply the legume with usable nitrogen (NH3).",
+				choice1: "nitrogen fixing bacteria in legumes' roots supply the legume with NH3.",
+				choice2: "legumes convert useless nitrogen to useful nitrogen .",
+				choice3: "nitrogen fixing bacteria in the legumes' leaves supply the legume with NH3.",
+				choice4: "legumes give bacteria useless nitrogen so the bacteria can convert NH2 to NH3.",
+				answer: "nitrogen fixing bacteria that live in legumes' roots supply the legume with NH3.",
 				image: "assets/images/bacteriaPlant.jpg"
 			},
 
@@ -310,7 +310,7 @@ var abioticFactors =
 				question: "17/20 <br/> Which of the following is true about humus?",
 				choice1: "It is an organic component of soil because it consists mostly of carbon.",
 				choice2: "Humus is organic matter that can't be used by microorganisms or plants.",
-				choice3: "Dead plant and animal matter is decomposed by microorganisms in the soil, leaving just humus.",
+				choice3: "Organic matter is decomposed by microorganisms in the soil, leaving just humus.",
 				choice4: "all of the above",
 				answer: "all of the above",
 				image: "assets/images/humus.jpg"
@@ -328,11 +328,11 @@ var abioticFactors =
 
 			{
 				question: "19/20 <br/> Why is the amount of heat important to organisms?",
-				choice1: "The biological processes in life, such as cellular respiration, are heat dependent.",
+				choice1: "The biological processes in life are heat dependent.",
 				choice2: "Physical processes, such as rock formation, are heat dependent.",
 				choice3: "Animals cannot reproduce in the cold.",
 				choice4: "Nutrients required for organism survival can only be produced in the cold.",
-				answer: "The biological processes in life, such as cellular respiration, are heat dependent.",
+				answer: "The biological processes in life are heat dependent.",
 				image: "assets/images/loveHeat.gif"
 			},
 
@@ -394,7 +394,7 @@ var symbiosis =
 				question: "5/17 <br/> What is an example of mutualism?",
 				choice1: "A plover bird eats while a crocodile gets it's mouth cleaned.",
 				choice2: "Orchids grow on trees to get sunlight.",
-				choice3: "A bot fly goes into animals or burrows into an animals' skin where larvae (eggs) grow.",
+				choice3: "A bot fly burrows into an animals' skin where larvae (eggs) grow.",
 				choice4: "Bread molds.",
 				answer: "A plover bird eats while a crocodile gets it's mouth cleaned.",
 				image: "assets/images/crocBird.jpg"
@@ -414,7 +414,7 @@ var symbiosis =
 				question: "7/17 <br/> What is an example of commensalism?",
 				choice1: "A plover bird eats while a crocodile gets it's mouth cleaned.",
 				choice2: "Orchids grow on trees to get sunlight.",
-				choice3: "A bot fly goes into animals or burrows into an animals' skin where larvae (eggs) grow.",
+				choice3: "A bot fly burrows into an animals' skin where larvae (eggs) grow.",
 				choice4: "Bread molds.",
 				answer: "Orchids grow on trees to get sunlight.",
 				image: "assets/images/orchardsTree.jpg"
@@ -434,9 +434,9 @@ var symbiosis =
 				question: "9/17 <br/> What is an example of parasitism?",
 				choice1: "A plover bird eats while a crocodile gets it's mouth cleaned.",
 				choice2: "Orchids grow on trees to get sunlight.",
-				choice3: "A bot fly goes into animals or burrows into an animals' skin where larvae (eggs) grow.",
+				choice3: "A bot fly burrows into an animals' skin where larvae (eggs) grow.",
 				choice4: "Bread molds.",
-				answer: "A bot fly goes into animals or burrows into an animals' skin where larvae (eggs) grow.",
+				answer: "A bot fly burrows into an animals' skin where larvae (eggs) grow.",
 				image: "assets/images/botfly.jpg"
 			},
 
@@ -454,7 +454,7 @@ var symbiosis =
 				question: "11/17 <br/> What is an example of amensalism?",
 				choice1: "A plover bird eats while a crocodile gets it's mouth cleaned.",
 				choice2: "Orchids grow on trees to get sunlight.",
-				choice3: "A bot fly goes into animals or burrows into an animals' skin where larvae grow.",
+				choice3: "A bot fly burrows into an animals' skin where larvae grow.",
 				choice4: "Bread molds.",
 				answer: "Bread molds.",
 				image: "assets/images/mold.jpg"

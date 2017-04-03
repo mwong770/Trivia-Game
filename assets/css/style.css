@@ -34,6 +34,11 @@ h2 {
 	width: 100%;
 }
 
+#instructions {
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
 #startButton, .categoryButton {
 	width: 30%;
 	padding: 10px;
@@ -60,7 +65,7 @@ h2 {
 }
 
 #soda {
-	width: 80%;
+	width: 70%;
 	height: auto;
 	margin-top: 200px;
 	margin-left: 60px;
@@ -113,7 +118,7 @@ h2 {
 	height: auto;
 	background-color: #04cc02;
 	margin: 0 auto 20px auto;
-	padding: 35px 0;
+	padding: 35px 20px;
 }
 
 #question {
@@ -167,6 +172,185 @@ footer {
 	padding-top: 20px;
 }
 
+/************ MEDIA 1200 MEDIA 1200 MEDIA 1200 MEDIA 1200 MEDIA 1200 *******************************/
+
+@media screen and (max-width: 1200px) {
+
+	body {
+		font-size: 19px;
+	}
+
+	#startButton, .categoryButton {
+		width: 50%;
+	}
+
+	#car {
+		margin-top: 50px;
+	}
+
+	#soda {
+		margin-top: 180px;
+	}
+
+	#plant {
+		margin-top: 100px;
+	}
+
+	#questionDiv, #resultDiv, #summaryDiv {
+		width: 60%;
+	}
+
+	#replayButton {
+		width: 70%;
+	}
+
+}
+
+/************ MEDIA 980 MEDIA 980 MEDIA 980 MEDIA 980 MEDIA 980 *******************************/
+
+@media screen and (max-width: 980px) {
+
+	body {
+		font-size: 18px;
+	}
+
+	#car {
+		margin-top: 75px;
+	}
+
+	#soda {
+		margin-top: 150px;
+	}
+
+	#plant {
+		margin-top: 150px;
+	}
+
+	#choice1, #choice2, #choice3, #choice4 {
+		height: 100px;
+	}
+
+	#replayButton {
+		width: 70%;
+	}
+
+}
+
+/************ MEDIA 768 MEDIA 768 MEDIA 768 MEDIA 768 MEDIA 768 *******************************/
+
+@media screen and (max-width: 768px) {
+
+	body {
+		font-size: 17px;
+	}
+
+	#triviaLogo {
+		width: 275px;
+		height: auto;
+	}
+
+	#startButton, .categoryButton {
+		width: 45%;
+	}
+
+	#car {
+		margin-top: 85px;
+	}
+
+	#soda {
+		margin-top: 180px;
+		width: 90%;
+	}
+
+	#trashcan {
+		margin-top: 100px;
+	}
+
+	#plant {
+		margin-top: 170px;
+	}
+
+	#timer {
+		font-size: 25px;
+	}
+
+	#questionDiv, #resultDiv, #summaryDiv {
+		width: 75%;
+	}
+
+}
+
+/************ MEDIA 640 MEDIA 640 MEDIA 640 MEDIA 640 MEDIA 640 *******************************/
+
+@media screen and (max-width: 640px) {
+
+	#triviaLogo {
+		width: 265px;
+		height: auto;
+	}
+
+	#car {
+		margin-top: 95px;
+	}
+
+	#soda {
+		margin-top: 150px;
+		width: 95%;
+	}
+
+	#trashcan {
+		margin-top: 100px;
+	}
+
+	#plant {
+		margin-top: 190px;
+	}
+
+	#startButton, .categoryButton {
+		width: 60%;
+	}
+
+	#questionDiv, #resultDiv, #summaryDiv {
+		width: 85%;
+	}
+
+}
+
+/************ MEDIA 520 MEDIA 520 MEDIA 520 MEDIA 520 MEDIA 520 *******************************/
+
+@media screen and (max-width: 520px) {
+
+	#triviaLogo {
+		width: 250px;
+		height: auto;
+	}
+
+	#startButton, .categoryButton {
+		width: 70%;
+	}
+
+	#car {
+		margin-top: 115px;
+	}
+
+	#soda {
+		margin-top: 170px;
+		width: 130%;
+	}
+
+	#trashcan {
+		margin-top: 120px;
+	}
+
+	#plant {
+		margin-top: 210px;
+	}
+
+	#questionDiv, #resultDiv, #summaryDiv {
+		width: 95%;
+	}
+	
+}
 
 
 
