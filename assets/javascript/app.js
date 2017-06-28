@@ -19,28 +19,28 @@ $("#categories").hide();
 
 // when click start, shows category buttons and removes some homepage elements
 $("#startButton").on("click", function() {
-	$("#categories").show();
-	$("#homepageImages").remove();
-	$("#gameDiv").remove();
+	  $("#categories").show();
+	  $("#homepageImages").remove();
+	  $("#gameDiv").remove();
 });
 
 // when click abioticFactors button, sets abioticFactors to true
 // and calls game function
 $("#abioticFactors").on("click", function() {
-	abioticFactorsCategory = true;
-	game();
+	  abioticFactorsCategory = true;
+	  game();
 });
 
 // when click category button, sets category to true
 // and calls game function
 $("#testCategory").on("click", function() {
-	competitionCategory = true;
-	game();
+	  competitionCategory = true;
+	  game();
 });
 
 $("#symbiosisCategory").on("click", function() {
-	symbiosisCategory = true;
-	game();
+	  symbiosisCategory = true;
+	  game();
 });
 
 // decreases seconds 
@@ -55,11 +55,11 @@ function countDown() {
         	}
 
         if (seconds <= 0) {
-            if (abioticFactorsCategory == true) {
+            if (abioticFactorsCategory === true) {
    				endOfTime(abioticFactors);
-   			} 	else if (competitionCategory == true) {
+   			} 	else if (competitionCategory === true) {
    					endOfTime(competition);
-   		  		} 	else if (symbiosisCategory == true) {
+   		  		} 	else if (symbiosisCategory === true) {
    						endOfTime(symbiosis);
    					}
         }
@@ -67,7 +67,7 @@ function countDown() {
 
 // displays current question
 function questions(category) {
-	$("#question").html(category[questionNumber].question);
+	  $("#question").html(category[questionNumber].question);
     $("#choice1").html(category[questionNumber].choice1);
     $("#choice2").html(category[questionNumber].choice2);
     $("#choice3").html(category[questionNumber].choice3);
@@ -84,11 +84,11 @@ function game() {
         $("#timer").html(seconds);
         intervalId = setInterval(countDown, 1000);
         $("#timer").css("visibility", "visible");
-        if (abioticFactorsCategory == true) {
+        if (abioticFactorsCategory === true) {
         	questions(abioticFactors);
-        } 	else if (competitionCategory == true) {
+        } 	else if (competitionCategory === true) {
        			questions(competition);
-       		} 	else if (symbiosisCategory == true) {
+       		} 	else if (symbiosisCategory === true) {
        				questions(symbiosis);
        			}
         $("#questionDiv").css("display", "block");          
@@ -98,7 +98,7 @@ function game() {
 // if more questions in array, calls game function
 function nextQuestion(category) {
 	questionNumber++;
-		if (questionNumber == category.length) {
+		if (questionNumber === category.length) {
         	gameOver();
         } 	else {
         		game();
@@ -110,11 +110,11 @@ function nextQuestion(category) {
 // calls checkIfRight function when click choice
 $(".choices").on('click', function() {
 	choice = $(this);
-	if (abioticFactorsCategory == true) {
+	if (abioticFactorsCategory === true) {
 		checkIfRight(abioticFactors);
-	} 	else if (competitionCategory == true) {
+	} 	else if (competitionCategory === true) {
 			checkIfRight(competition);
-		} 	else if (symbiosisCategory == true) {
+		} 	else if (symbiosisCategory === true) {
 				checkIfRight(symbiosis);
 			}
 });
@@ -130,25 +130,31 @@ function checkIfRight(category) {
 }
 
 // hides question and choices and stops timer
-// displays congratulatory resultDiv
-function correctChoice(category) {
-	clearInterval(intervalId);
-    numberRight++;
+// shows resultDiv then next question
+function result(category) {
+    clearInterval(intervalId);
     $("#questionDiv").css("display", "none");
     $("#timer").css("visibility", "hidden");
     $("#resultDiv").show();
+    $("#imageResult").attr("src", category[questionNumber].image);
+    $("#imageResult").show();
+    if (abioticFactorsCategory === true) {
+        setTimeout(nextQuestion, 5000, abioticFactors);
+      }   else if (competitionCategory === true) {
+          setTimeout(nextQuestion, 5000, competition);
+        }   else if (symbiosisCategory === true) {
+            setTimeout(nextQuestion, 5000, symbiosis);
+          }
+}
+
+
+// increments # right and shows congradulatory message
+function correctChoice(category) {
+    numberRight++;
     $("#message").html("You got it right.");
     $("#result").html("Way to go!");
     $("#correctAnswer").html('');
-    $("#imageResult").attr("src", category[questionNumber].image);
-    $("#imageResult").show();
-    if (abioticFactorsCategory == true) {
-    	setTimeout(nextQuestion, 5000, abioticFactors);
-    } 	else if (competitionCategory == true) {
-    		setTimeout(nextQuestion, 5000, competition);
-    	} 	else if (symbiosisCategory == true) {
-    			setTimeout(nextQuestion, 5000, symbiosis);
-    		}
+    result(category);
 }
 
 // displays message indicating incorrect and calls incorrect function
@@ -158,31 +164,18 @@ function wrongChoice(category) {
 		incorrect(category);
 }
 
-// hides question and choices, stops timer and calls nextQuestion function
-// displays resultDiv
+// shows answer and calls result function
 function incorrect(category) {
-	clearInterval(intervalId);
-    $("#questionDiv").css("display", "none");
-    $("#timer").css("visibility", "hidden");
-    $("#resultDiv").show();
     $("#result").html("The correct answer is..."); 
     $("#correctAnswer").html(category[questionNumber].answer);
-    $("#imageResult").attr("src", category[questionNumber].image);
-    $("#imageResult").show();
-	if (abioticFactorsCategory == true) {
-    	setTimeout(nextQuestion, 5000, abioticFactors);
-    } 	else if (competitionCategory == true) {
-    		setTimeout(nextQuestion, 5000, competition);
-    	} 	else if (symbiosisCategory == true) {
-    			setTimeout(nextQuestion, 5000, symbiosis);
-    		}
+    result(category);
 }
 
 // shows message indicating ran out of time and calls incorrect function
 function endOfTime(category) {
-	numberUnanswered++;
-	$("#message").html("Oops. You ran out of time.");
-	incorrect(category);
+	  numberUnanswered++;
+	  $("#message").html("Oops. You ran out of time.");
+	  incorrect(category);
 }
 
 // hides resultDiv and displays a summary of the user's performance
