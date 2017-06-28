@@ -12,27 +12,27 @@ var competitionCategory = false;
 var symbiosisCategory = false;
 
 
-//hides elements will use later
+// hides elements will use later
 $("#imageResult").hide();
 $("#replayButton").hide();
 $("#categories").hide();
 
-//when click start, show categories buttons and remove some homepage elements
+// when click start, shows category buttons and removes some homepage elements
 $("#startButton").on("click", function() {
 	$("#categories").show();
 	$("#homepageImages").remove();
 	$("#gameDiv").remove();
 });
 
-//when click abioticFactors button, set abioticFactors to true
-//and call game function
+// when click abioticFactors button, sets abioticFactors to true
+// and calls game function
 $("#abioticFactors").on("click", function() {
 	abioticFactorsCategory = true;
 	game();
 });
 
-//when click category button, set category to true
-//and call game function
+// when click category button, sets category to true
+// and calls game function
 $("#testCategory").on("click", function() {
 	competitionCategory = true;
 	game();
@@ -43,7 +43,7 @@ $("#symbiosisCategory").on("click", function() {
 	game();
 });
 
-//decreases seconds 
+// decreases seconds 
 function countDown() {
         seconds--;
         $("#timer").html(seconds);
@@ -65,7 +65,7 @@ function countDown() {
         }
 }
 
-//displays current question
+// displays current question
 function questions(category) {
 	$("#question").html(category[questionNumber].question);
     $("#choice1").html(category[questionNumber].choice1);
@@ -74,8 +74,8 @@ function questions(category) {
     $("#choice4").html(category[questionNumber].choice4);
 }
 
-//sets and activates timer
-//calls questions function
+// sets and activates timer
+// calls questions function
 function game() {
 		$("#homepageImages").remove();
 		$("#gameDiv").remove();
@@ -94,8 +94,8 @@ function game() {
         $("#questionDiv").css("display", "block");          
 }
 
-//if no more questions in array, calls endOfGame function
-//if more questions in array, calls game function
+// if no more questions in array, calls endOfGame function
+// if more questions in array, calls game function
 function nextQuestion(category) {
 	questionNumber++;
 		if (questionNumber == category.length) {
@@ -107,7 +107,7 @@ function nextQuestion(category) {
     		}
 }
 
-//calls checkIfRight function when click choice
+// calls checkIfRight function when click choice
 $(".choices").on('click', function() {
 	choice = $(this);
 	if (abioticFactorsCategory == true) {
@@ -119,8 +119,8 @@ $(".choices").on('click', function() {
 			}
 });
 
-//if click correct choice, calls correctChoice function
-//if choice is not correct, calls wrongChoice function
+// if click correct choice, calls correctChoice function
+// if choice is not correct, calls wrongChoice function
 function checkIfRight(category) {
 	if(choice.text() === category[questionNumber].answer) {
  		correctChoice(category);
@@ -129,8 +129,8 @@ function checkIfRight(category) {
  		}
 }
 
-//hides question and choices and stops timer
-//displays congratulatory resultDiv
+// hides question and choices and stops timer
+// displays congratulatory resultDiv
 function correctChoice(category) {
 	clearInterval(intervalId);
     numberRight++;
@@ -151,15 +151,15 @@ function correctChoice(category) {
     		}
 }
 
-//displays message indicating incorrect and calls incorrect function
+// displays message indicating incorrect and calls incorrect function
 function wrongChoice(category) {
 		numberWrong++;
 		$("#message").html("Oh no. That is not correct.")
 		incorrect(category);
 }
 
-//hides question and choices, stops timer and calls nextQuestion function
-//displays resultDiv
+// hides question and choices, stops timer and calls nextQuestion function
+// displays resultDiv
 function incorrect(category) {
 	clearInterval(intervalId);
     $("#questionDiv").css("display", "none");
@@ -178,14 +178,14 @@ function incorrect(category) {
     		}
 }
 
-//shows message indicating ran out of time and calls incorrect function
+// shows message indicating ran out of time and calls incorrect function
 function endOfTime(category) {
 	numberUnanswered++;
 	$("#message").html("Oops. You ran out of time.");
 	incorrect(category);
 }
 
-//hides resultDiv and displays a summary of the user's performance
+// hides resultDiv and displays a summary of the user's performance
 function gameOver() {
 		$("#resultDiv").hide();
 		$("#numCorrect").html(numberRight);
@@ -202,7 +202,7 @@ function gameOver() {
    		$("#replayButton").show();
 }
 
-//when click replayButton, hides summary info, resets variables, and displays categories
+// when click replayButton, hides summary info, resets variables, and displays categories
 $("#replayButton").on("click", function() {
 		$("#summaryDiv").css("display", "none");
 		$("#replayButton").hide();

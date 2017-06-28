@@ -2,13 +2,11 @@
 	box-sizing: border-box; 
 }
 
-/*step 1 of 3 to make sticky footer*/
 html {
 	position: relative;
 	min-height: 100%;
 }
 
-/*margin 10 (height of footer) is step 2 of 3 to make sticky footer*/
 body {
 	text-align: center;
 	margin: 0 auto 60px auto;
@@ -185,7 +183,6 @@ img {
 	border-radius: 20px;
 }
 
-/*position absolute/bottom 0/width 100% is step 3 of 3 to make sticky footer*/
 footer {
 	position: absolute;
 	height: 60px;
