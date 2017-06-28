@@ -35,6 +35,7 @@
 
 * Users choose among three ecology topics 
 * Users answer multiple choice questions while being timed
+* Users see the number of questions in each topic and the number of questions attempted above each question
 * Users see the timer change from black to red as it counts down the last 5 seconds
 * If users don't answer a question in 15 seconds, users see a screen showing the correct answer and a related image
 * If users do answer a question on time, users see a screen indicating they got it right and a related image
